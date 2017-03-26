@@ -10,9 +10,9 @@ import Foundation
 
 class APIDetils {
     static let baseURL = "http://localhost:8080/json/"
-    static let apiCallCompletions = ["products/all"]
+    static let apiCallCompletions = [0:{ ()->String in "products/all"}]
     
     class func buildUrl(theAPICallIndex: Int)->URL {
-        return URL(string: APIDetils.baseURL+APIDetils.apiCallCompletions[theAPICallIndex])!
+        return URL(string: APIDetils.baseURL+APIDetils.apiCallCompletions[theAPICallIndex]!())!
     }
 }

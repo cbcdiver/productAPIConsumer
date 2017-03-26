@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		830FAF671E884426003C0119 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830FAF661E884426003C0119 /* TableViewController.swift */; };
 		83D25C271E8818D30012CECC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D25C261E8818D30012CECC /* AppDelegate.swift */; };
 		83D25C291E8818D30012CECC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D25C281E8818D30012CECC /* ViewController.swift */; };
 		83D25C2C1E8818D30012CECC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83D25C2A1E8818D30012CECC /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		830FAF661E884426003C0119 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		83D25C231E8818D30012CECC /* API Consuming Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "API Consuming Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D25C261E8818D30012CECC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83D25C281E8818D30012CECC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				83D25C581E882EEA0012CECC /* APIDetails.swift */,
 				83D25C261E8818D30012CECC /* AppDelegate.swift */,
 				83D25C281E8818D30012CECC /* ViewController.swift */,
+				830FAF661E884426003C0119 /* TableViewController.swift */,
 				83D25C2A1E8818D30012CECC /* Main.storyboard */,
 				83D25C2D1E8818D30012CECC /* Assets.xcassets */,
 				83D25C2F1E8818D30012CECC /* LaunchScreen.storyboard */,
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83D25C591E882EEA0012CECC /* APIDetails.swift in Sources */,
+				830FAF671E884426003C0119 /* TableViewController.swift in Sources */,
 				83D25C291E8818D30012CECC /* ViewController.swift in Sources */,
 				83D25C5B1E8837990012CECC /* APICalls.swift in Sources */,
 				83D25C571E88193C0012CECC /* Product.swift in Sources */,
@@ -528,6 +532,7 @@
 				83D25C4D1E8818D30012CECC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83D25C4E1E8818D30012CECC /* Build configuration list for PBXNativeTarget "API Consuming DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +541,7 @@
 				83D25C501E8818D30012CECC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83D25C511E8818D30012CECC /* Build configuration list for PBXNativeTarget "API Consuming DemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +550,7 @@
 				83D25C531E8818D30012CECC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
