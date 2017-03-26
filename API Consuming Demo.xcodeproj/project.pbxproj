@@ -14,6 +14,10 @@
 		83D25C311E8818D30012CECC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83D25C2F1E8818D30012CECC /* LaunchScreen.storyboard */; };
 		83D25C3C1E8818D30012CECC /* API_Consuming_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D25C3B1E8818D30012CECC /* API_Consuming_DemoTests.swift */; };
 		83D25C471E8818D30012CECC /* API_Consuming_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D25C461E8818D30012CECC /* API_Consuming_DemoUITests.swift */; };
+		83D25C551E8818FE0012CECC /* APIInteractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D25C541E8818FE0012CECC /* APIInteractions.swift */; };
+		83D25C571E88193C0012CECC /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D25C561E88193C0012CECC /* Product.swift */; };
+		83D25C591E882EEA0012CECC /* APIDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D25C581E882EEA0012CECC /* APIDetails.swift */; };
+		83D25C5B1E8837990012CECC /* APICalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D25C5A1E8837990012CECC /* APICalls.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		83D25C421E8818D30012CECC /* API Consuming DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "API Consuming DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D25C461E8818D30012CECC /* API_Consuming_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_Consuming_DemoUITests.swift; sourceTree = "<group>"; };
 		83D25C481E8818D30012CECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83D25C541E8818FE0012CECC /* APIInteractions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIInteractions.swift; path = ../APIInteractions.swift; sourceTree = "<group>"; };
+		83D25C561E88193C0012CECC /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Product.swift; path = ../Product.swift; sourceTree = "<group>"; };
+		83D25C581E882EEA0012CECC /* APIDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDetails.swift; sourceTree = "<group>"; };
+		83D25C5A1E8837990012CECC /* APICalls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICalls.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,10 @@
 		83D25C251E8818D30012CECC /* API Consuming Demo */ = {
 			isa = PBXGroup;
 			children = (
+				83D25C541E8818FE0012CECC /* APIInteractions.swift */,
+				83D25C561E88193C0012CECC /* Product.swift */,
+				83D25C5A1E8837990012CECC /* APICalls.swift */,
+				83D25C581E882EEA0012CECC /* APIDetails.swift */,
 				83D25C261E8818D30012CECC /* AppDelegate.swift */,
 				83D25C281E8818D30012CECC /* ViewController.swift */,
 				83D25C2A1E8818D30012CECC /* Main.storyboard */,
@@ -262,7 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83D25C591E882EEA0012CECC /* APIDetails.swift in Sources */,
 				83D25C291E8818D30012CECC /* ViewController.swift in Sources */,
+				83D25C5B1E8837990012CECC /* APICalls.swift in Sources */,
+				83D25C571E88193C0012CECC /* Product.swift in Sources */,
+				83D25C551E8818FE0012CECC /* APIInteractions.swift in Sources */,
 				83D25C271E8818D30012CECC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
