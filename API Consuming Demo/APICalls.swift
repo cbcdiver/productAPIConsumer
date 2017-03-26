@@ -10,6 +10,7 @@ import Foundation
 
 enum APICalls: Int {
     case allProducts = 0
+    case deleteAProduct = 1
     
     var theIndex:Int {
         get {

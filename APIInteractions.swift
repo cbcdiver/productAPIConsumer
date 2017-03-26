@@ -38,4 +38,23 @@ class APIInteractions {
         }
         searchTask.resume()
     }
+    
+    class func deleteProduct(theURL:URL, onCompletion: @escaping ([String:String]!)->Void) {
+        let searchTask = URLSession.shared.dataTask(with: theURL) {(data, response, error) in
+            if error != nil {
+                print("Error Deleting Products: \(error)")
+                onCompletion(nil)
+                return
+            }
+            do {
+                let resultsDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: String]
+                onCompletion(resultsDictionary)
+            } catch {
+                print("Error parsing JSON: \(error)")
+                onCompletion(nil)
+                return
+            }
+        }
+        searchTask.resume()
+    }
 }
