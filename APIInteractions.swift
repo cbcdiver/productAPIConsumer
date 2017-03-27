@@ -10,7 +10,9 @@ import Foundation
 
 class APIInteractions {
     class func getAllData(theURL:URL, onCompletion: @escaping ([Product]!)->Void) {
-        let searchTask = URLSession.shared.dataTask(with: theURL) {(data, response, error) in
+        var request = URLRequest(url: theURL)
+        request.httpMethod = "GET"
+        let searchTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
             if error != nil {
                 print("Error fetching products: \(error)")
                 onCompletion(nil)
@@ -39,16 +41,18 @@ class APIInteractions {
         searchTask.resume()
     }
     
-    class func deleteProduct(theURL:URL, onCompletion: @escaping ([String:String]!)->Void) {
-        let searchTask = URLSession.shared.dataTask(with: theURL) {(data, response, error) in
+    class func deleteAProduct(theURL:URL, onCompletion: @escaping ([String:[String:String]]!)->Void) {
+        var request = URLRequest(url: theURL)
+        request.httpMethod = "DELETE"
+        let searchTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
             if error != nil {
                 print("Error Deleting Products: \(error)")
                 onCompletion(nil)
                 return
             }
             do {
-                let resultsDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: String]
-                onCompletion(resultsDictionary)
+                let resultsDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:[String: String]]
+                onCompletion(resultsDictionary!)
             } catch {
                 print("Error parsing JSON: \(error)")
                 onCompletion(nil)

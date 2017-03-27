@@ -27,7 +27,7 @@ class TableViewController: UITableViewController {
     }
     
     @IBAction func loadTheJSON(_ sender: Any) {
-        APIInteractions.getAllData(theURL: APIDetils.buildUrl(callType: .allProducts, params: []),
+        APIInteractions.getAllData(theURL: APIDetails.buildUrl(callType: .allProducts, params: []),
                                    onCompletion: { (theProducts: [Product]?) -> () in
                                     self.theProducts = theProducts!
                                     DispatchQueue.main.async(execute: { () -> Void in
@@ -73,14 +73,19 @@ class TableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            print(self.theProducts[indexPath.row].number)
+            let productNumber = self.theProducts[indexPath.row].number
             self.theProducts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            //self.theProducts.remove(at: indexPath.row)
-        } /*else if editingStyle == .insert {
-         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-         } */
+            
+            APIInteractions.deleteAProduct(theURL: APIDetails.buildUrl(callType: .deleteAProduct, params: [String(productNumber)]),
+                                           onCompletion: { (theResult: [String:[String:String]]?) -> () in
+                                            DispatchQueue.main.async(execute: { () -> Void in
+                                                print(theResult!)
+                                                self.tableView.reloadData()
+                                            })
+            })
+        }
+        
     }
     
     

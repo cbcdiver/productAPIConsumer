@@ -8,12 +8,13 @@
 
 import Foundation
 
-class APIDetils {
+class APIDetails {
     static let baseURL = "http://localhost:8080/json/"
-    static let apiCallCompletions:[Int:([String])->String] = [0:{(params) in "products/all"},
-                                                              1:{(params) in "products/delete/\(params[0])"}]
+    
+    static let apiCallCompletions:[APICalls:([String])->String] = [.allProducts:{(params) in "products/all"},
+                                                                   .deleteAProduct:{(params) in "products/delete/\(params[0])"}]
     
     class func buildUrl(callType:APICalls, params:[String])->URL {
-        return URL(string: APIDetils.baseURL+APIDetils.apiCallCompletions[callType.theIndex]!(params))!
+        return URL(string: baseURL+apiCallCompletions[callType]!(params))!
     }
 }
