@@ -23,10 +23,10 @@ class APIInteractions {
                 guard let productArray = resultsDictionary!["products"] as? [[String:AnyObject]] else { return }
                
                 let products:[Product] = productArray.map { productDictionary in
-                    let productNumber = productDictionary["number"]! as! Int
+                    let productNumber = Int(productDictionary["number"]! as! String)!
                     let productName = productDictionary["name"]! as! String
                     let productDescription = productDictionary["description"]! as! String
-                    let productPrice = productDictionary["price"]! as! Double
+                    let productPrice = Double(productDictionary["price"]! as! String)!
                     
                     return Product(number: productNumber, name: productName, description: productDescription, price: productPrice)
                 }
