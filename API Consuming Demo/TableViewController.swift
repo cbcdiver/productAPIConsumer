@@ -27,10 +27,9 @@ class TableViewController: UITableViewController {
     }
     
     @IBAction func loadTheJSON(_ sender: Any) {
-        APIInteractions.getAllData(theURL: APIDetils.buildUrl(theAPICallIndex: APICalls.allProducts.theIndex, params: []),
+        APIInteractions.getAllData(theURL: APIDetils.buildUrl(callType: .allProducts, params: []),
                                    onCompletion: { (theProducts: [Product]?) -> () in
                                     self.theProducts = theProducts!
-                                    
                                     DispatchQueue.main.async(execute: { () -> Void in
                                         self.tableView.reloadData()
                                     })
