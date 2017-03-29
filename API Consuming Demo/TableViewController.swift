@@ -30,8 +30,6 @@ class TableViewController: UITableViewController {
                                     theURL: APIDetails.buildUrl(callType: .addProduct, params: []),
                                     onCompletion: { (theResult: [String:Any]?) -> () in
                                         DispatchQueue.main.async(execute: { () -> Void in
-                                            print(theResult!)
-                                            self.tableView.reloadData()
                                         })
         })
     }
@@ -90,7 +88,6 @@ class TableViewController: UITableViewController {
             APIInteractions.deleteAProduct(theURL: APIDetails.buildUrl(callType: .deleteAProduct, params: [String(productNumber)]),
                                            onCompletion: { (theResult: [String:Any]?) -> () in
                                             DispatchQueue.main.async(execute: { () -> Void in
-                                                print(theResult!)
                                                 self.tableView.reloadData()
                                             })
             })
