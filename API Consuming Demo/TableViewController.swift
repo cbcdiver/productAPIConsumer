@@ -25,6 +25,14 @@ class TableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func addAProduct(_ sender: UIBarButtonItem) {
+        APIInteractions.addAProduct(number: 4321, name: "Nine", price: 99.99,
+                                    theURL: APIDetails.buildUrl(callType: .addProduct, params: []),
+                                    onCompletion: { (theResult: [String:Any]?) -> () in
+                                        DispatchQueue.main.async(execute: { () -> Void in
+                                        })
+        })
+    }
     
     @IBAction func loadTheJSON(_ sender: Any) {
         APIInteractions.getAllData(theURL: APIDetails.buildUrl(callType: .allProducts, params: []),
@@ -71,7 +79,7 @@ class TableViewController: UITableViewController {
     
     
     // Override to support editing the table view.
-   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let productNumber = self.theProducts[indexPath.row].number
             self.theProducts.remove(at: indexPath.row)
@@ -80,7 +88,6 @@ class TableViewController: UITableViewController {
             APIInteractions.deleteAProduct(theURL: APIDetails.buildUrl(callType: .deleteAProduct, params: [String(productNumber)]),
                                            onCompletion: { (theResult: [String:Any]?) -> () in
                                             DispatchQueue.main.async(execute: { () -> Void in
-                                                print(theResult!)
                                                 self.tableView.reloadData()
                                             })
             })

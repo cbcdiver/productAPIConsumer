@@ -64,5 +64,33 @@ class APIInteractions {
         }
         searchTask.resume()
     }
+    
+    class func addAProduct(number:Int, name:String, price:Double, theURL:URL, onCompletion: @escaping ([String:Any]!)->Void) {
+        var request = URLRequest(url: theURL)
+        request.httpMethod = "POST"
+        
+        request.httpBody = buildAddPostDataString(number: number, name: name, price: price).data(using: .utf8)
+        
+        let searchTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if error != nil {
+                print("Error Adding Product: \(error)")
+                onCompletion(nil)
+                return
+            }
+            do {
+                let resultsDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any]
+                onCompletion(resultsDictionary!)
+            } catch {
+                print("Error parsing JSON: \(error)")
+                onCompletion(nil)
+                return
+            }
+        }
+        searchTask.resume()
+    }
+
+    class func buildAddPostDataString(number:Int, name:String, price:Double) -> String {
+        return "name=\(name)&number=\(number)&price=\(price)"
+    }
 
 }
