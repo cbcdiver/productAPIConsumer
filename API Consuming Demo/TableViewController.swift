@@ -54,7 +54,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TheCell", for: indexPath)
         
-        cell.textLabel?.text = self.theProducts[indexPath.row].name
+        cell.textLabel?.text = self.theProducts[indexPath.row].name+" (\(self.theProducts[indexPath.row].number))"
         cell.detailTextLabel?.text = self.theProducts[indexPath.row].price.description
         
         return cell
@@ -71,14 +71,14 @@ class TableViewController: UITableViewController {
     
     
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let productNumber = self.theProducts[indexPath.row].number
             self.theProducts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
             APIInteractions.deleteAProduct(theURL: APIDetails.buildUrl(callType: .deleteAProduct, params: [String(productNumber)]),
-                                           onCompletion: { (theResult: [String:[String:String]]?) -> () in
+                                           onCompletion: { (theResult: [String:Any]?) -> () in
                                             DispatchQueue.main.async(execute: { () -> Void in
                                                 print(theResult!)
                                                 self.tableView.reloadData()
@@ -87,7 +87,6 @@ class TableViewController: UITableViewController {
         }
         
     }
-    
     
     /*
      // Override to support rearranging the table view.

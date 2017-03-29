@@ -11,7 +11,6 @@ import Foundation
 struct Product {
     let number:Int
     let name:String
-    let description:String
     let price:Double
 }
 

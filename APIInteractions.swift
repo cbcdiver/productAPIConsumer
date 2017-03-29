@@ -20,15 +20,18 @@ class APIInteractions {
             }
             do {
                 let resultsDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject]
-                guard let productArray = resultsDictionary!["products"] as? [[String:AnyObject]] else { return }
+                
+                print(resultsDictionary!)
+                
+                guard let dataDictionary = resultsDictionary!["data"] as? [String:AnyObject] else { return }
+                guard let productArray = dataDictionary["products"] as? [[String:AnyObject]] else { return }
                
                 let products:[Product] = productArray.map { productDictionary in
-                    let productNumber = Int(productDictionary["number"]! as! String)!
+                    let productNumber = productDictionary["number"]! as! Int
                     let productName = productDictionary["name"]! as! String
-                    let productDescription = productDictionary["description"]! as! String
-                    let productPrice = Double(productDictionary["price"]! as! String)!
+                    let productPrice = productDictionary["price"] as! Double
                     
-                    return Product(number: productNumber, name: productName, description: productDescription, price: productPrice)
+                    return Product(number: productNumber, name: productName, price: productPrice)
                 }
                 
                 onCompletion(products)
@@ -41,7 +44,7 @@ class APIInteractions {
         searchTask.resume()
     }
     
-    class func deleteAProduct(theURL:URL, onCompletion: @escaping ([String:[String:String]]!)->Void) {
+    class func deleteAProduct(theURL:URL, onCompletion: @escaping ([String:Any]!)->Void) {
         var request = URLRequest(url: theURL)
         request.httpMethod = "DELETE"
         let searchTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
@@ -51,7 +54,7 @@ class APIInteractions {
                 return
             }
             do {
-                let resultsDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:[String: String]]
+                let resultsDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any]
                 onCompletion(resultsDictionary!)
             } catch {
                 print("Error parsing JSON: \(error)")
@@ -61,4 +64,5 @@ class APIInteractions {
         }
         searchTask.resume()
     }
+
 }
