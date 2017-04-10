@@ -14,7 +14,7 @@ class APIInteractions {
         request.httpMethod = "GET"
         let searchTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
             if error != nil {
-                print("Error fetching products: \(error)")
+                print("Error fetching products: \(String(describing: error))")
                 onCompletion(nil)
                 return
             }
@@ -49,7 +49,7 @@ class APIInteractions {
         request.httpMethod = "DELETE"
         let searchTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
             if error != nil {
-                print("Error Deleting Products: \(error)")
+                print("Error Deleting Products: \(String(describing: error))")
                 onCompletion(nil)
                 return
             }
@@ -73,7 +73,7 @@ class APIInteractions {
         
         let searchTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
             if error != nil {
-                print("Error Adding Product: \(error)")
+                print("Error Adding Product: \(String(describing: error))")
                 onCompletion(nil)
                 return
             }
