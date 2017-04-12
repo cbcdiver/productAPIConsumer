@@ -12,6 +12,7 @@ enum APICalls: Int {
     case allProducts = 0
     case deleteAProduct = 1
     case addProduct = 2
+    case resetAPI = 3
     
     var theIndex:Int {
         get {

@@ -13,7 +13,8 @@ class APIDetails {
     
     static let apiCallCompletions:[APICalls:([String])->String] = [.allProducts:{(params) in "products/all"},
                                                                    .deleteAProduct:{(params) in "products/delete/\(params[0])"},
-                                                                   .addProduct:{(params) in "products/add"}]
+                                                                   .addProduct:{(params) in "products/add"},
+                                                                   .resetAPI:{(params) in "/products/reset"}]
     
     class func buildUrl(callType:APICalls, params:[String])->URL {
         return URL(string: baseURL+apiCallCompletions[callType]!(params))!
